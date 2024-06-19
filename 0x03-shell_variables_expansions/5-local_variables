@@ -1,2 +1,2 @@
 #!/bin/bash
-{ declare -p | grep -E 'declare -[a-zA-Z]+ ' | sed 's/declare -[a-zA-Z]\+ //' | sort; env | sort; declare -F | awk '{print $3}' | sort; }
+set | grep -vE '^BASH[A-Z_]+\(\)|^_=|^BASH_VERSION|^COLUMNS|^LINES' | cut -d= -f1
