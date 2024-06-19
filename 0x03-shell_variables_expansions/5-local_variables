@@ -1,2 +1,2 @@
 #!/bin/bash
-(set -o posix; set) | grep -v '^_=' | grep -v '^BASH_FUNC_' | awk -F= '{print $1}'
+set | grep -E '^[A-Za-z_][A-Za-z_0-9]*='
