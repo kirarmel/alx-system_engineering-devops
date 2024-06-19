@@ -1,0 +1,2 @@
+#!/bin/bash
+{ declare -p | grep -E 'declare -[a-zA-Z]+ ' | sed 's/declare -[a-zA-Z]\+ //' | sort; env | sort; declare -F | awk '{print $3}' | sort; }
