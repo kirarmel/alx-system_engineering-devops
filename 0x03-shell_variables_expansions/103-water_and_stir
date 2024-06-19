@@ -1,0 +1,40 @@
+#!/bin/bash
+char_to_num() {
+    case "$1" in
+        e) echo 1 ;;
+        w) echo 2 ;;
+        a) echo 3 ;;
+        t) echo 4 ;;
+        r) echo 5 ;;
+        *) echo 0 ;;
+    esac
+}
+num_to_char() {
+    case "$1" in
+        1) echo s ;;
+        2) echo h ;;
+        3) echo t ;;
+        4) echo b ;;
+        5) echo e ;;
+        *) echo 0 ;;
+    esac
+}
+WATER="${WATER:-}"
+STIR="${STIR:-}"
+if [ -z "$WATER" ] || [ -z "$STIR" ]; then
+    echo "Error: WATER or STIR environment variables are not set."
+    exit 1
+fi
+sum=0
+for (( i=0; i<${#WATER}; i++ )); do
+    sum=$(( sum + $(char_to_num "${WATER:i:1}") ))
+done
+for (( i=0; i<${#STIR}; i++ )); do
+    sum=$(( sum + $(char_to_num "${STIR:i:1}") ))
+done
+result=""
+while [ $sum -gt 0 ]; do
+    result="$(num_to_char $(( sum % 5 )))$result"
+    sum=$(( sum / 5 ))
+done
+echo "$result"
