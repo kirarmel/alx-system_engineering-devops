@@ -1,2 +1,2 @@
 #!/bin/bash
-(set -o posix; set) | grep -vE '^BASH[A-Z_]+\(\)|^_|^PPID' | cut -d= -f1-2
+set | grep -vE '^BASH[A-Z_]+\(\)|^_=|^BASH_VERSION|^COLUMNS|^LINES' | cut -d= -f1
