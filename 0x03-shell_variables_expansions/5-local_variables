@@ -1,2 +1,2 @@
 #!/bin/bash
-(set -o posix; set) | grep -v '^_=' | grep -v '^BASH_FUNC_' | cut -d= -f1
+(set -o posix; set) | grep -v '^_=' | grep -v '^BASH_FUNC_' | awk -F= '{print $1}'
