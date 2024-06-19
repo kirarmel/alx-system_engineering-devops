@@ -1,4 +1,6 @@
 #!/bin/bash
-file_name='\*\\\'"Best School"\''\'\\*\$\?\*\*\*\*\*:')'
-printf "Best School\n" > "$file_name"
+
+# Define the file name with proper escaping
+file_name='\*\\\'"Best School"\''\'\\*\$\?\*\*\*\*\*:)''                                                            
+printf "Best School\n" > "$file_name"                                                           
 echo "File '$file_name' created"
