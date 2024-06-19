@@ -1,4 +1,4 @@
 #!/bin/bash
-file_name='\*\\'"Best School"\'\\*\$\?\*\*\*\*\*:)'
-echo "Best School" > "$file_name"
+file_name='\*\\\'"Best School"\''\'\\*\$\?\*\*\*\*\*:')'
+printf "Best School\n" > "$file_name"
 echo "File '$file_name' created"
